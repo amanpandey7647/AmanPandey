@@ -1,0 +1,70 @@
+img{
+    width: 100%;
+    height: 100%;
+}
+body {
+  background: white;
+  text-align: center;
+}
+h1 {
+  font-weight: bold;
+}
+.mainDiv{
+  padding: 50px 20px;
+  font-family:sans-serif;
+  color: white;
+}
+#htmlDiv{
+  background-color: black;
+}
+#cssDiv{
+  background-color:crimson;
+}
+p{
+  line-height: 1.8;
+}
+hr{
+  width:50px;
+}
+a{
+    text-decoration: none;
+    color: #009ea3;
+}
+a:hover{
+    color: #3c00a3;
+}
+
+#skills{
+  height: 500px;
+  background-color: #e8e8e8;
+  padding-top: 50px;
+}
+.container-bar {
+  width: 80%;
+  background-color: #fff;
+  margin: 10px auto;
+}
+.skills {
+  text-align: right;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  color: white;
+}
+
+.python {
+  width:98%;
+  background-color: #EE82EE;
+}
+.html {
+  width:90%;
+  background-color: red;
+}
+.css {
+  width: 73%;
+  background-color: blue;
+}
+.js {
+  width:86%;
+  background-color: yellow;
+}
