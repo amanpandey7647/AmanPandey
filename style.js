@@ -15,5 +15,5 @@ function changecolor5() {
 }
 
 function changecolor6(){
-  document.getElementById("htmlDiv").style.color="silver";
+  document.getElementById("htmlDiv").style.color="golden";
 }
