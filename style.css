@@ -1,107 +1,112 @@
+/* style.css */
 body {
-  background: white;
-  text-align: center;
-  font-family: "Raleway", sans-serif; /* Consistent font usage */
+  font-family: 'Montserrat', sans-serif; 
+  line-height: 1.6; 
 }
 
-img {
+header {
+  background-color: rgba(0, 0, 0, 0.7); 
+  padding: 1rem 0;
+  position: fixed;
+  width: 100%; 
+  z-index: 100; 
+  transition: background-color 0.3s ease; 
+}
+
+header.scrolled {
+  background-color: #333; 
+}
+
+.navbar-brand {
+  font-size: 1.5rem; 
+  color: #fff!important; 
+}
+
+.nav-link {
+  color: #fff!important; 
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff!important; 
+}
+
+.jumbotron {
+  background-image: url('banner.jpg');
+  background-size: cover;
+  background-position: center; 
+  min-height: 400px; 
+  color: #fff; 
+  position: relative;
+}
+
+.jumbotron::before { 
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Ensure images scale properly and don't distort */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
 }
 
-h1 {
-  font-weight: bold;
+.jumbotron .container {
+  position: relative;
+  z-index: 1; 
 }
 
-.mainDiv {
-  padding: 50px 20px;
-  font-family: sans-serif;
-  color: white;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add Transitions */
+#about {
+  background-color: #f8f9fa; 
 }
 
-#htmlDiv {
-  background-color: black;
-}
-#htmlDiv:hover { /* Color Change on Hover */
-  background-color: #d4af37; /* Gold */ 
-  color: black;
+#about img {
+  max-width: 300px; 
+  height: auto;
 }
 
-#cssDiv {
-  background-color: crimson;
-}
-#cssDiv:hover { /* Color Change on Hover */
-  background-color: silver;
-  color: black;
-}
-p {
-  line-height: 1.8;
-}
-
-hr {
-  width: 50px;
-  border: 1px solid white; /* Make the hr visible on dark backgrounds */
-  margin: 20px auto; /* Center the hr and add some spacing */
-}
-
-a {
-  text-decoration: none;
-  color: #009ea3;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
-}
-
-a:hover {
-  color: #3c00a3;
-}
-
-/* Skills Section */
 #skills {
-  height: 500px;
-  background-color: #e8e8e8;
-  padding-top: 50px;
+  text-align: left; 
 }
 
-.container-bar {
-  width: 80%;
-  background-color: #fff;
-  margin: 20px auto; /* Even spacing above and below */
-  border-radius: 10px; /* Rounded corners for the bars */
-  overflow: hidden; /* Hide excess bar width */
+.skill {
+  margin-bottom: 1rem; 
 }
 
-.skills {
-  text-align: right;
-  padding: 10px; /* Consistent padding */
-  color: white;
-  font-weight: bold; /* Make skill names more prominent */
+.skill-bar {
+  height: 10px; 
+  background-color: #007bff; 
+  border-radius: 5px; 
 }
 
-.python {
-  width: 98%;
-  background-color: #ee82ee;
-  height: 30px; /* Consistent height for skill bars */
-  margin-bottom: 10px; /* Space between bars */
+#projects {
+  background-color: #e9ecef; 
 }
 
-.html {
-  width: 90%;
-  background-color: red;
-  height: 30px;
-  margin-bottom: 10px;
+.project-card {
+  border: none; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; 
 }
 
-.css {
-  width: 73%;
-  background-color: blue;
-  height: 30px;
-  margin-bottom: 10px;
+.project-card:hover {
+  transform: translateY(-5px); 
 }
 
-.js {
-  width: 86%;
-  background-color: yellow;
-  height: 30px;
-  margin-bottom: 10px;
+.project-card img {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem; 
+}
+
+footer {
+  background-color: #343a40;
+}
+
+footer a {
+  color: #fff; 
+  transition: color 0.3s ease; 
+}
+
+footer a:hover {
+  color: #007bff; 
 }
