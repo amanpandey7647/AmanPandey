@@ -18,16 +18,24 @@ h1 {
   padding: 50px 20px;
   font-family: sans-serif;
   color: white;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Add Transitions */
 }
 
 #htmlDiv {
   background-color: black;
 }
+#htmlDiv:hover { /* Color Change on Hover */
+  background-color: #d4af37; /* Gold */ 
+  color: black;
+}
 
 #cssDiv {
   background-color: crimson;
 }
-
+#cssDiv:hover { /* Color Change on Hover */
+  background-color: silver;
+  color: black;
+}
 p {
   line-height: 1.8;
 }
