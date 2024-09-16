@@ -17,3 +17,14 @@ function changecolor5() {
 function changecolor6(){
   document.getElementById("htmlDiv").style.color="golden";
 }
+window.addEventListener('load', () => { // Wait for the page to load
+  const skillsDiv = document.getElementById('htmlDiv');
+
+  skillsDiv.addEventListener('mouseover', () => {
+    skillsDiv.style.transform = 'scale(1.05)'; // Scale up slightly on hover
+  });
+
+  skillsDiv.addEventListener('mouseout', () => {
+    skillsDiv.style.transform = 'scale(1)'; // Return to normal size
+  });
+});
