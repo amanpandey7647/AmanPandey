@@ -1,176 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aman Pandey's Portfolio</title>
-
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet"> 
-  <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aman Pandey</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+    integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Raleway:wght@500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
 
-  <header> 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-      <div class="container">
-        <a class="navbar-brand font-weight-bold" href="#">Aman Pandey</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav" aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="main-nav">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#skills">Skills</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#projects">Projects</a> 
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#contact">Contact</a>
-            </li>
-            <li class="nav-item"> 
-              <a href="#" id="loginBtn" class="nav-link" data-toggle="modal" data-target="#loginModal">
-                <i class="fas fa-sign-in-alt"></i> Login
-              </a>
-              <a href="#" id="logoutBtn" class="nav-link" style="display:none;" onclick="logout()">
-                <i class="fas fa-sign-out-alt"></i> Logout
-              </a>
-            </li>
-          </ul>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand font-weight-bold text-monospace" href="#">Aman Pandey</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-nav"
+      aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="main-nav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#home">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#posts">Posts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#hobbies">Hobbies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <header id="home" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="banner1.jpg" class="d-block w-100" alt="Place 1" />
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Welcome to My Portfolio</h1>
+          <p>Programmer, Music Producer, and More</p>
         </div>
       </div>
-    </nav>
+      <div class="carousel-item">
+        <img src="banner2.jpg" class="d-block w-100" alt="Place 2" />
+        <div class="carousel-caption d-none d-md-block">
+          <h1>Explore My Work and Passions</h1>
+          <p>Let's connect and collaborate!</p>
+        </div>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#home" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#home" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
   </header>
 
-  <section id="home" class="jumbotron jumbotron-fluid text-center">
-    <div class="container">
-      <h1 class="display-4">Hello, I'm Aman Pandey</h1>
-      <p class="lead">Programmer | Web Developer | Music Producer</p>
-      <a href="#about" class="btn btn-primary btn-lg">Learn More</a>
-    </div>
-  </section>
-
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="loginModalLabel">Login / Register</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="loginForm"> 
-            <form>
-              <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" required>
-              </div>
-              <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" required>
-              </div>
-              <button type="submit" class="btn btn-primary">Login</button>
-            </form>
-            <p class="mt-2">Don't have an account? <a href="#" onclick="showRegistration()">Register</a></p>
-          </div>
-
-          <div id="registrationForm" style="display: none;"> 
-            <form>
-              <div class="form-group">
-                <label for="regUsername">Username:</label>
-                <input type="text" class="form-control" id="regUsername" required>
-              </div>
-              <div class="form-group">
-                <label for="regPassword">Password:</label>
-                <input type="password" class="form-control" id="regPassword" required>
-              </div>
-              <button type="submit" class="btn btn-success">Register</button>
-            </form>
-            <p class="mt-2">Already have an account? <a href="#" onclick="showLogin()">Login</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <section id="about" class="container py-5"> 
+  <section id="about" class="container py-5">
     <div class="row">
-      <div class="col-lg-6"> 
-        <img src="profile-pic.jpg" alt="Profile Picture" class="img-fluid rounded-circle shadow">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">About Me</h2>
       </div>
-      <div class="col-lg-6 mt-4 mt-lg-0"> 
-        <h2>About Me</h2>
-        <p>I'm a passionate programmer and web developer with a keen interest in creating elegant and functional digital experiences.  I enjoy the challenge of bringing ideas to life through code and I'm always eager to learn new technologies.</p>
-        <p>When I'm not coding, you can find me producing music, exploring new places, or experimenting in the kitchen.</p>
-        <a href="#contact" class="btn btn-outline-primary">Get in Touch</a> 
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <img src="img1.jpg" class="img-fluid rounded-circle" alt="Profile" />
+      </div>
+      <div class="col-md-8">
+        <p class="lead">
+          I'm a passionate programmer, music producer, and creative
+          enthusiast. I thrive on transforming ideas into reality using
+          code and sound.
+        </p>
+        <p>
+          With a keen eye for detail and a drive for innovation, I'm
+          always seeking new challenges and opportunities to learn and
+          grow. My journey in the world of technology and music is
+          fueled by a deep-seated desire to make a positive impact.
+        </p>
+        <p>
+          Let's connect and explore how we can collaborate on exciting
+          projects!
+        </p>
+        <a href="#posts" class="btn btn-primary">View My Posts</a>
       </div>
     </div>
   </section>
 
-  <section id="skills" class="bg-light py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Skills</h2>
-      <div class="row">
-        <div class="col-md-6">
-          <h5 class="mb-3">Technical Skills</h5>
-          <div class="skill">
-            Python <div class="skill-bar" style="width: 90%;"></div> 
-          </div>
-          <div class="skill">
-            JavaScript <div class="skill-bar" style="width: 80%;"></div>
-          </div>
-          <div class="skill">
-            HTML/CSS <div class="skill-bar" style="width: 95%;"></div>
-          </div>
-          <div class="skill">
-            React <div class="skill-bar" style="width: 70%;"></div>
+  <section id="posts" class="container py-5 bg-light">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">Feature Posts</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="768px-Python-logo-notext.svg.png" class="card-img-top" alt="Python" />
+          <div class="card-body">
+            <h5 class="card-title">Python</h5>
+            <p class="card-text">
+              Python is a versatile programming language known for its
+              readability and wide range of applications.
+            </p>
+            <a href="#" class="btn btn-light stretched-link">Learn More</a>
           </div>
         </div>
-        <div class="col-md-6 mt-4 mt-md-0">
-          <h5 class="mb-3">Soft Skills</h5>
-          <ul class="list-unstyled"> 
-            <li><i class="fas fa-check-circle text-success mr-2"></i> Problem-Solving</li>
-            <li><i class="fas fa-check-circle text-success mr-2"></i> Communication</li>
-            <li><i class="fas fa-check-circle text-success mr-2"></i> Teamwork</li>
-            <li><i class="fas fa-check-circle text-success mr-2"></i> Creativity</li>
-            <li><i class="fas fa-check-circle text-success mr-2"></i> Time Management</li>
-          </ul>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="3c924980-61ac-11e9-8e4e-6e50e0cec366.png" class="card-img-top" alt="JavaScript" />
+          <div class="card-body">
+            <h5 class="card-title">JavaScript</h5>
+            <p class="card-text">
+              JavaScript brings interactivity and dynamic behavior to
+              websites.
+            </p>
+            <a href="#" class="btn btn-light stretched-link">Learn More</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card">
+          <img src="1_lJ32Bl-lHWmNMUSiSq17gQ.png" class="card-img-top" alt="HTML" />
+          <div class="card-body">
+            <h5 class="card-title">HTML</h5>
+            <p class="card-text">
+              HTML forms the structural foundation of web pages.
+            </p>
+            <a href="#" class="btn btn-light stretched-link">Learn More</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="projects" class="py-5">
-    <div class="container">
-      <h2 class="text-center mb-4">Projects</h2>
-      <div class="row">
-        </div> 
+  <section id="skills" class="container py-5">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">My Skills</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> Problem-Solving
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> Creativity
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> Critical Thinking
+          </li>
+        </ul>
+      </div>
+      <div class="col-md-6">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> HTML/CSS
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> JavaScript
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-check-circle text-success mr-2"></i> Python
+          </li>
+        </ul>
+      </div>
     </div>
   </section>
 
-  <footer id="contact" class="bg-dark text-light py-4">
+  <section id="hobbies" class="container py-5 bg-light">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h2 class="mb-4">What's My Hobby?</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column align-items-center">
+            <i class="fas fa-code fa-3x mb-3"></i>
+            <h5 class="card-title">Programming</h5>
+            <p class="card-text">
+              Turning lines of code into functional and elegant
+              solutions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column align-items-center">
+            <i class="fas fa-music fa-3x mb-3"></i>
+            <h5 class="card-title">Music Production</h5>
+            <p class="card-text">
+              Crafting soundscapes and melodies that evoke emotions.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <div class="card-body d-flex flex-column align-items-center">
+            <i class="fas fa-palette fa-3x mb-3"></i>
+            <h5 class="card-title">Web Designing</h5>
+            <p class="card-text">
+              Designing visually appealing and user-friendly websites.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="container-fluid py-3 bg-dark text-light">
     <div class="container text-center">
-      <h5 class="mb-3">Get in Touch</h5>
-      <ul class="list-inline">
-        <li class="list-inline-item"><a href="#" target="_blank" class="text-light"><i class="fab fa-linkedin fa-2x"></i></a></li> 
-        <li class="list-inline-item"><a href="mailto:your-email@example.com" class="text-light"><i class="fas fa-envelope fa-2x"></i></a></li> 
-      </ul>
-      <p class="mt-3">© 2023 Aman Pandey</p>
+      <h3 class="mb-3">Connect with Me</h3>
+      <a href="mailto:aman.kumar.pandey.7647@gmail.com" class="text-light mr-3">
+        <i class="fas fa-envelope fa-2x"></i>
+      </a>
+      <a href="https://www.linkedin.com/in/paman7647" class="text-light">
+        <i class="fab fa-linkedin fa-2x"></i>
+      </a>
     </div>
   </footer>
 
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
+    integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
   <script src="style.js"></script>
 </body>
+
 </html>
