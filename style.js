@@ -1,64 +1,30 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const loginForm = document.getElementById('loginForm');
-  const registrationForm = document.getElementById('registrationForm');
-  const loginBtn = document.getElementById('loginBtn');
-  const logoutBtn = document.getElementById('logoutBtn');
-  const navbar = document.querySelector('header');
+function changecolor1(){
+  document.getElementById("htmlDiv").style.color="red";
+}
+function changecolor2(){
+  document.getElementById("htmlDiv").style.color="white";
+}
+function changecolor3(){
+  document.getElementById("cssDiv").style.color="red";
+}
+function changecolor4(){
+  document.getElementById("cssDiv").style.color="yellow";
+}
+function changecolor5() {
+  docuement.getElementById("cssDiv").style.color="silver";
+}
 
-  // Function to check scroll position and update header
-  function updateHeaderOnScroll() {
-    if (window.scrollY > 0) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  }
+function changecolor6(){
+  document.getElementById("htmlDiv").style.color="golden";
+}
+window.addEventListener('load', () => { // Wait for the page to load
+  const skillsDiv = document.getElementById('htmlDiv');
 
-  window.addEventListener('scroll', updateHeaderOnScroll);
-
-
-  if (localStorage.getItem('loggedIn') === 'true') {
-    showLogout();
-  }
-
-  loginForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-
-    if (username === 'testuser' && password === 'password') {
-      localStorage.setItem('loggedIn', 'true');
-      showLogout();
-    } else {
-      alert('Incorrect username or password.');
-    }
+  skillsDiv.addEventListener('mouseover', () => {
+    skillsDiv.style.transform = 'scale(1.05)'; // Scale up slightly on hover
   });
 
-  registrationForm.addEventListener('submit', (event) => {
-    event.preventDefault();
-    // In a real app, you'd send registration data to the server here
-    localStorage.setItem('loggedIn', 'true');
-    showLogout();
+  skillsDiv.addEventListener('mouseout', () => {
+    skillsDiv.style.transform = 'scale(1)'; // Return to normal size
   });
-
-  function showLogout() {
-    loginBtn.style.display = 'none';
-    logoutBtn.style.display = 'block';
-  }
-
-  function logout() {
-    localStorage.setItem('loggedIn', 'false');
-    loginBtn.style.display = 'block';
-    logoutBtn.style.display = 'none';
-  }
-
-  function showRegistration() {
-    loginForm.style.display = 'none';
-    registrationForm.style.display = 'block';
-  }
-
-  function showLogin() {
-    loginForm.style.display = 'block';
-    registrationForm.style.display = 'none';
-  }
 });
