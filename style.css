@@ -1,70 +1,99 @@
-img{
-    width: 100%;
-    height: 100%;
-}
 body {
   background: white;
   text-align: center;
+  font-family: "Raleway", sans-serif; /* Consistent font usage */
 }
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure images scale properly and don't distort */
+}
+
 h1 {
   font-weight: bold;
 }
-.mainDiv{
+
+.mainDiv {
   padding: 50px 20px;
-  font-family:sans-serif;
+  font-family: sans-serif;
   color: white;
 }
-#htmlDiv{
+
+#htmlDiv {
   background-color: black;
 }
-#cssDiv{
-  background-color:crimson;
-}
-p{
-  line-height: 1.8;
-}
-hr{
-  width:50px;
-}
-a{
-    text-decoration: none;
-    color: #009ea3;
-}
-a:hover{
-    color: #3c00a3;
+
+#cssDiv {
+  background-color: crimson;
 }
 
-#skills{
+p {
+  line-height: 1.8;
+}
+
+hr {
+  width: 50px;
+  border: 1px solid white; /* Make the hr visible on dark backgrounds */
+  margin: 20px auto; /* Center the hr and add some spacing */
+}
+
+a {
+  text-decoration: none;
+  color: #009ea3;
+  transition: color 0.3s ease; /* Smooth color transition on hover */
+}
+
+a:hover {
+  color: #3c00a3;
+}
+
+/* Skills Section */
+#skills {
   height: 500px;
   background-color: #e8e8e8;
   padding-top: 50px;
 }
+
 .container-bar {
   width: 80%;
   background-color: #fff;
-  margin: 10px auto;
+  margin: 20px auto; /* Even spacing above and below */
+  border-radius: 10px; /* Rounded corners for the bars */
+  overflow: hidden; /* Hide excess bar width */
 }
+
 .skills {
   text-align: right;
-  padding-bottom: 10px;
-  padding-top: 10px;
-  padding-right: 10px;
+  padding: 10px; /* Consistent padding */
   color: white;
+  font-weight: bold; /* Make skill names more prominent */
 }
 
 .python {
-  width:98%;
-  background-color: #EE82EE;
+  width: 98%;
+  background-color: #ee82ee;
+  height: 30px; /* Consistent height for skill bars */
+  margin-bottom: 10px; /* Space between bars */
 }
+
 .html {
-  width:90%;
+  width: 90%;
   background-color: red;
+  height: 30px;
+  margin-bottom: 10px;
 }
+
 .css {
   width: 73%;
   background-color: blue;
+  height: 30px;
+  margin-bottom: 10px;
 }
+
 .js {
-  width:86%;
+  width: 86%;
   background-color: yellow;
+  height: 30px;
+  margin-bottom: 10px;
 }
