@@ -1,7 +1,16 @@
+/* General Styling */
 body {
-  background: white;
-  text-align: center;
-  font-family: "Raleway", sans-serif; /* Consistent font usage */
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Add smooth transition for dark mode */
+}
+
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
 }
 
 img {
@@ -10,40 +19,12 @@ img {
   object-fit: cover; /* Ensure images scale properly and don't distort */
 }
 
-h1 {
+h1, h2 {
   font-weight: bold;
 }
 
-.mainDiv {
-  padding: 50px 20px;
-  font-family: sans-serif;
-  color: white;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Add Transitions */
-}
-
-#htmlDiv {
-  background-color: black;
-}
-#htmlDiv:hover { /* Color Change on Hover */
-  background-color: #d4af37; /* Gold */ 
-  color: black;
-}
-
-#cssDiv {
-  background-color: crimson;
-}
-#cssDiv:hover { /* Color Change on Hover */
-  background-color: silver;
-  color: black;
-}
 p {
   line-height: 1.8;
-}
-
-hr {
-  width: 50px;
-  border: 1px solid white; /* Make the hr visible on dark backgrounds */
-  margin: 20px auto; /* Center the hr and add some spacing */
 }
 
 a {
@@ -56,52 +37,72 @@ a:hover {
   color: #3c00a3;
 }
 
-/* Skills Section */
+/* Skill Bars */
 #skills {
-  height: 500px;
-  background-color: #e8e8e8;
-  padding-top: 50px;
+    background-color: #fff;
+    padding: 3rem 0;
+    transition: background-color 0.3s ease; /* Smooth transition for dark mode */
 }
 
-.container-bar {
-  width: 80%;
-  background-color: #fff;
-  margin: 20px auto; /* Even spacing above and below */
-  border-radius: 10px; /* Rounded corners for the bars */
-  overflow: hidden; /* Hide excess bar width */
+.skill-bar {
+    margin-bottom: 1.5rem;
 }
 
-.skills {
-  text-align: right;
-  padding: 10px; /* Consistent padding */
-  color: white;
-  font-weight: bold; /* Make skill names more prominent */
+.skill-name {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease; /* Smooth transition for dark mode */
 }
 
-.python {
-  width: 98%;
-  background-color: #ee82ee;
-  height: 30px; /* Consistent height for skill bars */
-  margin-bottom: 10px; /* Space between bars */
+.skill-level {
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden; /* Hide excess width before animation */
+    transition: width 0.5s ease-in-out; /* Smooth animation */
+    width: 0%; /* Initially, set the width to 0% */
 }
 
-.html {
-  width: 90%;
-  background-color: red;
-  height: 30px;
-  margin-bottom: 10px;
+.skill-level.html {
+    background-color: #e34c26; /* HTML color */
 }
 
-.css {
-  width: 73%;
-  background-color: blue;
-  height: 30px;
-  margin-bottom: 10px;
+.skill-level.css {
+    background-color: #2965f1; /* CSS color  */
 }
 
-.js {
-  width: 86%;
-  background-color: yellow;
-  height: 30px;
-  margin-bottom: 10px;
+.skill-level.js {
+    background-color: #f0db4f; /* JavaScript color */
+}
+
+.skill-level.python {
+    background-color: #3776ab;
+}
+
+
+/* Dark Mode Toggle (Optional) */
+.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+.dark-mode #skills {
+    background-color: #555;
+}
+
+.dark-mode .skill-name {
+    color: #eee;
+}
+
+/* Dark Mode Toggle Button Styling (Customize as needed) */
+.dark-mode-toggle {
+    position: fixed; /* Example: Fix the button to the bottom right */
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
 }
