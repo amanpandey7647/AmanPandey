@@ -1,30 +1,38 @@
-function changecolor1(){
-  document.getElementById("htmlDiv").style.color="red";
-}
-function changecolor2(){
-  document.getElementById("htmlDiv").style.color="white";
-}
-function changecolor3(){
-  document.getElementById("cssDiv").style.color="red";
-}
-function changecolor4(){
-  document.getElementById("cssDiv").style.color="yellow";
-}
-function changecolor5() {
-  docuement.getElementById("cssDiv").style.color="silver";
-}
+document.addEventListener('DOMContentLoaded', function () {
+  // Smooth Skill Bar Animations
+  const skillBars = document.querySelectorAll('.skill-level');
 
-function changecolor6(){
-  document.getElementById("htmlDiv").style.color="golden";
-}
-window.addEventListener('load', () => { // Wait for the page to load
-  const skillsDiv = document.getElementById('htmlDiv');
+  function checkScroll(el) {
+    let rect = el.getBoundingClientRect();
+    // Check if the element is in the viewport (with a small offset)
+    return (
+      rect.top >= 0 &&
+      rect.left >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) + 50 && // +50px offset
+      rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+  }
 
-  skillsDiv.addEventListener('mouseover', () => {
-    skillsDiv.style.transform = 'scale(1.05)'; // Scale up slightly on hover
-  });
 
-  skillsDiv.addEventListener('mouseout', () => {
-    skillsDiv.style.transform = 'scale(1)'; // Return to normal size
-  });
-});
+  function fillSkillBars() {
+    skillBars.forEach(bar => {
+      if (checkScroll(bar)) {
+        bar.style.width = bar.dataset.skillLevel; // Get width from data attribute
+      }
+    });
+  }
+
+  window.addEventListener('scroll', fillSkillBars);
+  fillSkillBars(); // Initial check when the page loads
+
+  // Dark Mode Toggle
+  const body = document.body;
+  const toggle = document.querySelector('.dark-mode-toggle');
+
+  // Check if the toggle button exists on the page
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+    });
+  }
+}); 
