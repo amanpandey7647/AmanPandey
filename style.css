@@ -4,7 +4,7 @@ body {
     margin: 0;
     background: linear-gradient(to bottom, #e0ffff, #cce0ff); /* Initial gradient */
     color: #333;
-    transition: background 1s ease; /* Smooth transition for background change */
+    transition: background 1s ease, color 0.5s ease; /* Smooth transitions */
 }
 
 .container {
@@ -19,8 +19,7 @@ img {
     object-fit: cover;
 }
 
-h1,
-h2 {
+h1, h2 {
     font-weight: bold;
 }
 
@@ -40,7 +39,7 @@ a:hover {
 
 /* Skill Bars */
 #skills {
-    background-color: #fff; 
+    background-color: #fff;
     padding: 3rem 0;
     transition: background-color 0.3s ease;
 }
@@ -60,7 +59,7 @@ a:hover {
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;
-    transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out, background-color 0.3s ease; /* Add transition for background color */
     width: 0%;
 }
 
@@ -82,28 +81,27 @@ a:hover {
 
 /* Dark Mode */
 .dark-mode {
-    background: linear-gradient(to bottom, #222, #444); /* Dark gradient */
-    color: #fff;
+    background: linear-gradient(to bottom, #121212, #212121); /* Darker gradient */
+    color: #e0e0e0; /* Lighter text color for better contrast */
 }
 
 .dark-mode #skills {
-    background-color: #333; 
+    background-color: #1e1e1e; 
 }
 
 .dark-mode .skill-name {
-    color: #eee;
+    color: #f5f5f5; /* Even lighter text for skill names */
 }
 
 .dark-mode .card {
-    background-color: #555; 
-    color: #eee; 
+    background-color: #2b2b2b; 
+    color: #d4d4d4; 
 }
 
 .dark-mode .btn-light {
-    background-color: #6c757d; 
-    color: #fff; 
+    background-color: #424242;
+    color: #fff;
 }
-
 
 /* Dark Mode Toggle Button Styling */
 .dark-mode-toggle {
@@ -111,17 +109,22 @@ a:hover {
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
-    background-color: #333;
-    color: #fff;
+    background-color: transparent; /* Remove background color */
+    color: #333;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     z-index: 1000;
+    font-size: 1.2em; /* Make icons slightly larger */
+    transition: color 0.3s ease; /* Add transition for color */
 }
 
 .dark-mode .dark-mode-toggle {
-    background-color: #fff;
-    color: #333;
+    color: #fff;
+}
+
+.dark-mode-toggle i {
+    margin: 0 0.2em; /* Add some space between icons */
 }
 
 /* Modern Animations */
@@ -166,4 +169,25 @@ a:hover {
     .skill-bar {
         margin-bottom: 1rem;
     }
+}
+
+/* Dark Mode Skill Bars (More Futuristic) */
+.dark-mode .skill-level {
+    background-color: #333; /* Dark background for skill bars */
+}
+
+.dark-mode .skill-level.html {
+    background-color: #ff6600; /* Vibrant orange */
+}
+
+.dark-mode .skill-level.css {
+    background-color: #0099ff; /* Electric blue */
+}
+
+.dark-mode .skill-level.js {
+    background-color: #ffff66; /* Bright yellow */
+}
+
+.dark-mode .skill-level.python {
+    background-color: #66ff33; /* Neon green */
 }
