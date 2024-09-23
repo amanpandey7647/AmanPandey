@@ -4,7 +4,7 @@ body {
     margin: 0;
     background-color: #f0f0f0;
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Add smooth transition for dark mode */
+    transition: background-color 0.3s ease, color 0.3s ease; 
 }
 
 .container {
@@ -14,34 +14,35 @@ body {
 }
 
 img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ensure images scale properly and don't distort */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
 }
 
-h1, h2 {
-  font-weight: bold;
+h1,
+h2 {
+    font-weight: bold;
 }
 
 p {
-  line-height: 1.8;
+    line-height: 1.8;
 }
 
 a {
-  text-decoration: none;
-  color: #009ea3;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+    text-decoration: none;
+    color: #009ea3;
+    transition: color 0.3s ease; 
 }
 
 a:hover {
-  color: #3c00a3;
+    color: #3c00a3;
 }
 
 /* Skill Bars */
 #skills {
     background-color: #fff;
     padding: 3rem 0;
-    transition: background-color 0.3s ease; /* Smooth transition for dark mode */
+    transition: background-color 0.3s ease; 
 }
 
 .skill-bar {
@@ -51,36 +52,35 @@ a:hover {
 .skill-name {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    transition: color 0.3s ease; /* Smooth transition for dark mode */
+    transition: color 0.3s ease; 
 }
 
 .skill-level {
     height: 20px;
     background-color: #e0e0e0;
     border-radius: 5px;
-    overflow: hidden; /* Hide excess width before animation */
-    transition: width 0.5s ease-in-out; /* Smooth animation */
-    width: 0%; /* Initially, set the width to 0% */
+    overflow: hidden; 
+    transition: width 0.5s ease-in-out; 
+    width: 0%; 
 }
 
 .skill-level.html {
-    background-color: #e34c26; /* HTML color */
+    background-color: #e34c26; 
 }
 
 .skill-level.css {
-    background-color: #2965f1; /* CSS color  */
+    background-color: #2965f1; 
 }
 
 .skill-level.js {
-    background-color: #f0db4f; /* JavaScript color */
+    background-color: #f0db4f; 
 }
 
 .skill-level.python {
     background-color: #3776ab;
 }
 
-
-/* Dark Mode Toggle (Optional) */
+/* Dark Mode */
 .dark-mode {
     background-color: #333;
     color: #fff;
@@ -94,9 +94,14 @@ a:hover {
     color: #eee;
 }
 
-/* Dark Mode Toggle Button Styling (Customize as needed) */
+.dark-mode .dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
+}
+
+/* Dark Mode Toggle Button Styling */
 .dark-mode-toggle {
-    position: fixed; /* Example: Fix the button to the bottom right */
+    position: fixed; 
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
@@ -105,4 +110,50 @@ a:hover {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 1000;
+}
+
+/* Modern Animations */
+.animated-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.animated-card {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.section-heading {
+    position: relative;
+    padding-bottom: 20px; 
+}
+
+.section-heading::after {
+    content: ""; 
+    position: absolute; 
+    bottom: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 50px; 
+    height: 3px; 
+    background-color: #007bff;
+    transition: width 0.3s ease; 
+}
+
+
+/* Show elements when they are in the viewport */
+.animated-text.show,
+.animated-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Media Queries for Responsiveness - Example */
+@media (max-width: 768px) {
+    .skill-bar {
+        margin-bottom: 1rem;
+    }
 }
