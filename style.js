@@ -23,12 +23,21 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('scroll', fillSkillBars);
     fillSkillBars();
 
-    // Dark Mode Toggle
-    const body = document.body;
+    // Dark Mode Toggle (Update for better visual feedback)
     const toggle = document.querySelector('.dark-mode-toggle');
+    const icon = document.querySelector('.dark-mode-toggle i'); // Select the first icon (sun)
 
     toggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
+        document.body.classList.toggle('dark-mode');
+
+        // Toggle icon based on dark mode state
+        if (document.body.classList.contains('dark-mode')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+        }
     });
 
     // Animations
