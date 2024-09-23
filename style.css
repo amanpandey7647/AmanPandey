@@ -2,9 +2,9 @@
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
-    background-color: #f0f0f0;
+    background: linear-gradient(to bottom, #e0ffff, #cce0ff); /* Light blue gradient */
     color: #333;
-    transition: background-color 0.3s ease, color 0.3s ease; 
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -16,7 +16,7 @@ body {
 img {
     width: 100%;
     height: 100%;
-    object-fit: cover; 
+    object-fit: cover;
 }
 
 h1,
@@ -31,7 +31,7 @@ p {
 a {
     text-decoration: none;
     color: #009ea3;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
 
 a:hover {
@@ -40,9 +40,9 @@ a:hover {
 
 /* Skill Bars */
 #skills {
-    background-color: #fff;
+    background-color: #fff; 
     padding: 3rem 0;
-    transition: background-color 0.3s ease; 
+    transition: background-color 0.3s ease;
 }
 
 .skill-bar {
@@ -52,28 +52,28 @@ a:hover {
 .skill-name {
     font-weight: bold;
     margin-bottom: 0.5rem;
-    transition: color 0.3s ease; 
+    transition: color 0.3s ease;
 }
 
 .skill-level {
     height: 20px;
     background-color: #e0e0e0;
     border-radius: 5px;
-    overflow: hidden; 
-    transition: width 0.5s ease-in-out; 
-    width: 0%; 
+    overflow: hidden;
+    transition: width 0.5s ease-in-out;
+    width: 0%;
 }
 
 .skill-level.html {
-    background-color: #e34c26; 
+    background-color: #e34c26;
 }
 
 .skill-level.css {
-    background-color: #2965f1; 
+    background-color: #2965f1;
 }
 
 .skill-level.js {
-    background-color: #f0db4f; 
+    background-color: #f0db4f;
 }
 
 .skill-level.python {
@@ -82,26 +82,32 @@ a:hover {
 
 /* Dark Mode */
 .dark-mode {
-    background-color: #333;
+    background: linear-gradient(to bottom, #222, #444); /* Dark gradient */
     color: #fff;
 }
 
 .dark-mode #skills {
-    background-color: #555;
+    background-color: #333; 
 }
 
 .dark-mode .skill-name {
     color: #eee;
 }
 
-.dark-mode .dark-mode-toggle {
-    background-color: #fff;
-    color: #333;
+.dark-mode .card {
+    background-color: #555; 
+    color: #eee; 
 }
+
+.dark-mode .btn-light {
+    background-color: #6c757d; 
+    color: #fff; 
+}
+
 
 /* Dark Mode Toggle Button Styling */
 .dark-mode-toggle {
-    position: fixed; 
+    position: fixed;
     bottom: 20px;
     right: 20px;
     padding: 10px 15px;
@@ -111,6 +117,11 @@ a:hover {
     border-radius: 5px;
     cursor: pointer;
     z-index: 1000;
+}
+
+.dark-mode .dark-mode-toggle {
+    background-color: #fff;
+    color: #333;
 }
 
 /* Modern Animations */
@@ -128,21 +139,20 @@ a:hover {
 
 .section-heading {
     position: relative;
-    padding-bottom: 20px; 
+    padding-bottom: 20px;
 }
 
 .section-heading::after {
-    content: ""; 
-    position: absolute; 
-    bottom: 0; 
-    left: 50%; 
-    transform: translateX(-50%); 
-    width: 50px; 
-    height: 3px; 
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
     background-color: #007bff;
-    transition: width 0.3s ease; 
+    transition: width 0.3s ease;
 }
-
 
 /* Show elements when they are in the viewport */
 .animated-text.show,
