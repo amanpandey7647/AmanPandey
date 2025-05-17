@@ -1,151 +1,214 @@
-/* General Styling */
-body {
-    font-family: 'Arial', sans-serif;
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Bree+Serif&family=Raleway:wght@400;500;600;700&display=swap");
+
+/*=============== CUSTOM CSS VARIABLES ===============*/
+:root {
+    /* HSL color base for the primary skin color */
+    --skin-hue: 219; /* Default: Blue */
+    --skin-saturation: 80%;
+    --skin-lightness: 60%;
+
+    --skin-color: hsl(var(--skin-hue), var(--skin-saturation), var(--skin-lightness));
+    --skin-color-alt: hsl(var(--skin-hue), var(--skin-saturation), 50%); /* Slightly darker for hover/active */
+    --skin-color-light: hsl(var(--skin-hue), var(--skin-saturation), 70%); /* Slightly lighter */
+
+    /* General colors for light mode */
+    --body-bg-light: #eff0f4;
+    --container-bg-light: #ffffff;
+    --text-color-light: #555555;
+    --heading-color-light: #000000;
+    --border-color-light: #d0d0d0; /* For inner lines/borders */
+
+    /* Shadow colors for light mode Soft UI/Neumorphism */
+    --outer-shadow-light: 6px 6px 12px rgba(208, 208, 208, 0.7), -6px -6px 12px rgba(248, 248, 248, 0.7);
+    --inner-shadow-light: inset 3px 3px 6px rgba(208, 208, 208, 0.7), inset -3px -3px 6px rgba(248, 248, 248, 0.7);
+    --outer-shadow-light-hover: 3px 3px 6px rgba(208, 208, 208, 0.7), -3px -3px 6px rgba(248, 248, 248, 0.7);
+    --inner-shadow-light-hover: inset 0 0 0 rgba(208, 208, 208, 0.7), inset 0 0 0 rgba(248, 248, 248, 0.7);
+
+
+    /* General colors for dark mode */
+    --body-bg-dark: #2b2c2f;
+    --container-bg-dark: #353535;
+    --text-color-dark: #bbbbbb;
+    --heading-color-dark: #ffffff;
+    --border-color-dark: #3c3c3c; /* For inner lines/borders */
+
+    /* Shadow colors for dark mode Soft UI/Neumorphism */
+    --outer-shadow-dark: 6px 6px 12px rgba(22, 23, 27, 0.7), -6px -6px 12px rgba(64, 64, 64, 0.7);
+    --inner-shadow-dark: inset 3px 3px 6px rgba(22, 23, 27, 0.7), inset -3px -3px 6px rgba(64, 64, 64, 0.7);
+    --outer-shadow-dark-hover: 3px 3px 6px rgba(22, 23, 27, 0.7), -3px -3px 6px rgba(64, 64, 64, 0.7);
+    --inner-shadow-dark-hover: inset 0 0 0 rgba(22, 23, 27, 0.7), inset 0 0 0 rgba(64, 64, 64, 0.7);
+
+    /* Current theme variables (will be switched by dark-mode class) */
+    --body-bg: var(--body-bg-light);
+    --container-bg: var(--container-bg-light);
+    --text-color: var(--text-color-light);
+    --heading-color: var(--heading-color-light);
+    --border-color: var(--border-color-light);
+    --outer-shadow: var(--outer-shadow-light);
+    --inner-shadow: var(--inner-shadow-light);
+    --outer-shadow-hover: var(--outer-shadow-light-hover);
+    --inner-shadow-hover: var(--inner-shadow-light-hover);
+
+    /* Specific colors */
+    --skill-bar-track-bg: #e0e0e0; /* Default skill bar track */
+    --skill-html: hsl(14, 89%, 53%);
+    --skill-css: hsl(217, 90%, 62%);
+    --skill-js: hsl(53, 97%, 62%);
+    --skill-python: hsl(207, 70%, 45%);
+
+     /* Dark mode specific skill colors (more vibrant) */
+    --skill-html-dark: hsl(14, 100%, 65%);
+    --skill-css-dark: hsl(217, 100%, 70%);
+    --skill-js-dark: hsl(53, 100%, 75%);
+    --skill-python-dark: hsl(95, 100%, 60%);
+
+    /* Preloader */
+    --preloader-bg: var(--body-bg);
+    --preloader-color: var(--skin-color);
+}
+
+/* Dark Mode Variables Override */
+body.dark-mode {
+    --body-bg: var(--body-bg-dark);
+    --container-bg: var(--container-bg-dark);
+    --text-color: var(--text-color-dark);
+    --heading-color: var(--heading-color-dark);
+    --border-color: var(--border-color-dark);
+    --outer-shadow: var(--outer-shadow-dark);
+    --inner-shadow: var(--inner-shadow-dark);
+    --outer-shadow-hover: var(--outer-shadow-dark-hover);
+    --inner-shadow-hover: var(--inner-shadow-dark-hover);
+
+    /* Dark mode skill colors */
+     --skill-html: var(--skill-html-dark);
+     --skill-css: var(--skill-css-dark);
+     --skill-js: var(--skill-js-dark);
+     --skill-python: var(--skill-python-dark);
+     --skill-bar-track-bg: #333;
+
+     /* Preloader */
+    --preloader-bg: var(--body-bg-dark);
+    --preloader-color: var(--skin-color-alt); /* Maybe a slightly different skin color in dark mode */
+}
+
+
+/*=============== BASE ===============*/
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
-    background: linear-gradient(to bottom, #e0ffff, #cce0ff); /* Initial gradient */
-    color: #333;
-    transition: background 1s ease, color 0.5s ease; /* Smooth transitions */
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling for anchor links */
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem; /* Default font size */
+    line-height: 1.8;
+    background-color: var(--body-bg);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+    scrollbar-width: thin;
+    scrollbar-color: var(--skin-color) var(--body-bg);
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Custom Scrollbar for Webkit browsers */
+body::-webkit-scrollbar {
+    width: 11px;
+}
+body::-webkit-scrollbar-track {
+    background: var(--body-bg);
+}
+body::-webkit-scrollbar-thumb {
+    background-color: var(--skin-color);
+    border-radius: 6px;
+    border: 3px solid var(--body-bg);
+}
+
+/* Prevent scrolling when preloader is active */
+body.stop-scrolling {
+    overflow: hidden;
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+    color: var(--heading-color);
+    transition: color 0.5s ease; /* Smooth theme transition */
+}
+
+p {
+    color: var(--text-color);
+    transition: color 0.5s ease; /* Smooth theme transition */
+}
+
+a {
+    text-decoration: none;
+    color: var(--skin-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--skin-color-alt);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
 }
 
 .container {
     max-width: 960px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 1rem; /* Add some horizontal padding */
 }
 
-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px; /* Counteract column padding */
 }
 
-h1, h2 {
-    font-weight: bold;
+.col-md-12, .col-md-8, .col-md-6, .col-md-4, .col-sm-6, .col-lg-8, .col-md-10 { /* Select specific Bootstrap columns used */
+    padding: 0 15px; /* Add padding to columns */
 }
 
-p {
-    line-height: 1.8;
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.section {
+    padding: 4.5rem 0 1rem; /* Add padding to sections */
 }
 
-a {
-    text-decoration: none;
-    color: #009ea3;
-    transition: color 0.3s ease;
-}
-
-a:hover {
-    color: #3c00a3;
-}
-
-/* Skill Bars */
-#skills {
-    background-color: #fff;
-    padding: 3rem 0;
-    transition: background-color 0.3s ease;
-}
-
-.skill-bar {
-    margin-bottom: 1.5rem;
-}
-
-.skill-name {
-    font-weight: bold;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-}
-
-.skill-level {
-    height: 20px;
-    background-color: #e0e0e0;
-    border-radius: 5px;
-    overflow: hidden;
-    transition: width 0.5s ease-in-out, background-color 0.3s ease; /* Add transition for background color */
-    width: 0%;
-}
-
-.skill-level.html {
-    background-color: #e34c26;
-}
-
-.skill-level.css {
-    background-color: #2965f1;
-}
-
-.skill-level.js {
-    background-color: #f0db4f;
-}
-
-.skill-level.python {
-    background-color: #3776ab;
-}
-
-/* Dark Mode */
-.dark-mode {
-    background: linear-gradient(to bottom, #121212, #212121); /* Darker gradient */
-    color: #e0e0e0; /* Lighter text color for better contrast */
-}
-
-.dark-mode #skills {
-    background-color: #1e1e1e; 
-}
-
-.dark-mode .skill-name {
-    color: #f5f5f5; /* Even lighter text for skill names */
-}
-
-.dark-mode .card {
-    background-color: #2b2b2b; 
-    color: #d4d4d4; 
-}
-
-.dark-mode .btn-light {
-    background-color: #424242;
-    color: #fff;
-}
-
-/* Dark Mode Toggle Button Styling */
-.dark-mode-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 10px 15px;
-    background-color: transparent; /* Remove background color */
-    color: #333;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    z-index: 1000;
-    font-size: 1.2em; /* Make icons slightly larger */
-    transition: color 0.3s ease; /* Add transition for color */
-}
-
-.dark-mode .dark-mode-toggle {
-    color: #fff;
-}
-
-.dark-mode-toggle i {
-    margin: 0 0.2em; /* Add some space between icons */
-}
-
-/* Modern Animations */
-.animated-text {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.animated-card {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-}
-
-.section-heading {
+.section-title {
+    text-align: center;
+    margin-bottom: 3rem;
     position: relative;
-    padding-bottom: 20px;
+    padding-bottom: 1.5rem;
 }
 
-.section-heading::after {
+.section-title .section__subtitle {
+    display: block;
+    font-size: 0.813rem;
+    color: var(--text-color-light);
+    margin-bottom: 0.5rem;
+    transition: color 0.5s ease; /* Smooth theme transition */
+}
+
+.section-title h2 {
+    font-size: 2.25rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.section-title::after {
     content: "";
     position: absolute;
     bottom: 0;
@@ -153,41 +216,554 @@ a:hover {
     transform: translateX(-50%);
     width: 50px;
     height: 3px;
-    background-color: #007bff;
-    transition: width 0.3s ease;
+    background-color: var(--skin-color);
+    transition: width 0.3s ease, background-color 0.5s ease; /* Smooth transitions */
 }
 
-/* Show elements when they are in the viewport */
-.animated-text.show,
-.animated-card.show {
-    opacity: 1;
-    transform: translateY(0);
+
+/*=============== SOFT UI / NEUMORPHISM SHADOWS ===============*/
+.outer-shadow {
+    box-shadow: var(--outer-shadow);
 }
 
-/* Media Queries for Responsiveness - Example */
-@media (max-width: 768px) {
-    .skill-bar {
-        margin-bottom: 1rem;
+.inner-shadow {
+    box-shadow: var(--inner-shadow);
+}
+
+.hover-in-shadow {
+    position: relative; /* Needed for ::after pseudo-element */
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-in-shadow:hover {
+    box-shadow: var(--inner-shadow-hover);
+}
+
+
+/*=============== BUTTONS ===============*/
+.btn {
+    display: inline-block;
+    background-color: var(--skin-color);
+    color: var(--body-bg);
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.8rem;
+    font-weight: 500;
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.3s ease;
+    border: none;
+    box-shadow: var(--outer-shadow);
+    cursor: pointer;
+}
+
+.btn:hover {
+     background-color: var(--skin-color-alt);
+     color: var(--body-bg);
+     box-shadow: var(--inner-shadow-hover);
+}
+
+/* Specific button overrides (if needed, adjust these to fit the theme) */
+.card-body .btn-light {
+    background-color: var(--container-bg); /* Use container bg for light buttons */
+    color: var(--heading-color); /* Use heading color for text */
+    box-shadow: var(--outer-shadow);
+}
+.card-body .btn-light:hover {
+     background-color: var(--container-bg-light); /* Keep similar bg on hover */
+     color: var(--skin-color); /* Use skin color text on hover */
+     box-shadow: var(--inner-shadow-hover);
+}
+body.dark-mode .card-body .btn-light {
+    background-color: var(--container-bg-dark);
+    color: var(--heading-color-dark);
+    box-shadow: var(--outer-shadow);
+}
+body.dark-mode .card-body .btn-light:hover {
+     background-color: var(--container-bg-dark);
+     color: var(--skin-color-dark);
+     box-shadow: var(--inner-shadow-hover);
+}
+
+
+/*=============== HEADER & NAV===============*/
+.navbar {
+   background-color: var(--container-bg) !important;
+   box-shadow: var(--outer-shadow);
+   transition: background-color 0.5s ease, box-shadow 0.5s ease;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+}
+
+.navbar-brand, .nav-link {
+    color: var(--heading-color) !important;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.navbar-brand:hover, .nav-link:hover {
+    color: var(--skin-color) !important;
+}
+
+/*=============== PRELOADER ===============*/
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--preloader-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1500;
+    transition: opacity 0.6s ease-out;
+}
+
+.preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--preloader-color);
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 
-/* Dark Mode Skill Bars (More Futuristic) */
-.dark-mode .skill-level {
-    background-color: #333; /* Dark background for skill bars */
+
+/*=============== DARK MODE TOGGLE ===============*/
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--container-bg);
+    box-shadow: var(--outer-shadow);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 1.5em;
+    color: var(--skin-color);
+    transition: background-color 0.5s ease, color 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dark-mode .skill-level.html {
-    background-color: #ff6600; /* Vibrant orange */
+.dark-mode-toggle:hover {
+    box-shadow: var(--inner-shadow-hover);
 }
 
-.dark-mode .skill-level.css {
-    background-color: #0099ff; /* Electric blue */
+.dark-mode-toggle i {
+    position: absolute;
+    transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-.dark-mode .skill-level.js {
-    background-color: #ffff66; /* Bright yellow */
+.dark-mode-toggle .sun-icon {
+    opacity: 1;
 }
 
-.dark-mode .skill-level.python {
-    background-color: #66ff33; /* Neon green */
+body.dark-mode .dark-mode-toggle .sun-icon {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.dark-mode-toggle .moon-icon {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+body.dark-mode .dark-mode-toggle .moon-icon {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+
+/*=============== CAROUSEL CAPTION ===============*/
+.carousel-caption {
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%);
+    bottom: auto; /* Remove default bottom alignment */
+    left: 10%;
+    right: 10%;
+    text-align: left; /* Align text left */
+}
+
+.carousel-caption h1, .carousel-caption p {
+     color: #fff !important;
+     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+     margin: 0 0 0.5rem 0;
+}
+.carousel-caption h1 {
+    font-size: 3rem;
+}
+.carousel-caption p {
+    font-size: 1.2rem;
+}
+/* Ensure readability on image banners by slightly darkening the image */
+.carousel-item img {
+    display: block;
+    filter: brightness(70%); /* Darken image slightly */
+}
+
+
+/*=============== ABOUT SECTION ===============*/
+#about .img-fluid {
+    border: 10px solid var(--container-bg);
+    box-shadow: var(--outer-shadow);
+    transition: border-color 0.5s ease, box-shadow 0.3s ease;
+}
+#about .about-tabs { /* Style for the tab items container if added */
+     padding: 30px 15px 20px;
+     text-align: center;
+}
+#about .tab-item { /* Style for individual tab items if added */
+    display: inline-block;
+    margin: 0 5px 10px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    color: var(--text-color);
+    font-weight: 500;
+}
+#about .tab-item.active {
+    color: var(--skin-color);
+    box-shadow: var(--outer-shadow);
+}
+#about .tab-item:hover:not(.active) {
+    opacity: 0.8;
+}
+#about .tab-content { /* Container for tab content */
+    display: none; /* Hidden by default */
+    width: 100%;
+    padding: 0 15px; /* Match column padding */
+    animation: fadeIn 0.5s ease; /* Simple fade animation */
+}
+#about .tab-content.active {
+    display: block;
+}
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+
+/*=============== POSTS & HOBBIES CARDS ===============*/
+/* Card styles are handled by the global .card class */
+/* Icons in hobby cards */
+#hobbies .service-icon {
+    color: var(--skin-color);
+    transition: color 0.5s ease; /* Smooth theme transition */
+}
+
+
+/*=============== SKILLS SECTION ===============*/
+#skills {
+    background-color: var(--container-bg);
+    padding: 4rem 0; /* More vertical padding */
+    box-shadow: var(--outer-shadow);
+    transition: background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+.skill-bar {
+    margin-bottom: 1.5rem;
+    padding: 0 1rem;
+}
+
+.skill-name {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--heading-color);
+    transition: color 0.5s ease;
+}
+
+.skill-level {
+    height: 20px;
+    background-color: var(--skill-bar-track-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: var(--inner-shadow);
+    width: 0%; /* Initial state for animation */
+    transition: width 1.5s ease-in-out, background-color 0.5s ease, box-shadow 0.3s ease;
+}
+
+/* Specific skill bar colors (using variables) */
+.skill-level.html { background-color: var(--skill-html); }
+.skill-level.css { background-color: var(--skill-css); }
+.skill-level.js { background-color: var(--skill-js); }
+.skill-level.python { background-color: var(--skill-python); }
+
+
+/*=============== CONTACT & FOOTER ===============*/
+#contact {
+     padding: 4rem 0;
+     background-color: var(--body-bg); /* Use body bg for contact section */
+     transition: background-color 0.5s ease;
+}
+
+/* Contact Info Cards */
+#contact .contact__card {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border-radius: 0.75rem;
+    padding: 2rem 1.5rem;
+    text-align: center;
+    box-shadow: var(--outer-shadow);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease;
+    height: 100%; /* Make cards equal height */
+    display: flex; /* Use flexbox for internal layout */
+    flex-direction: column;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+}
+
+#contact .contact__card i {
+    font-size: 2.5rem; /* Larger icons */
+    color: var(--skin-color);
+    margin-bottom: 0.75rem;
+    transition: color 0.5s ease;
+}
+
+#contact .contact__card h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--heading-color);
+    margin-bottom: 0.5rem;
+    transition: color 0.5s ease;
+}
+
+#contact .contact__card-data {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--text-color); /* Use primary text color for data */
+    margin-bottom: 1rem;
+    word-break: break-word; /* Prevent long emails/handles from overflowing */
+    transition: color 0.5s ease;
+}
+#contact .contact__card-data#my-email {
+    cursor: pointer; /* Indicate email is clickable/copyable */
+}
+
+
+/* Contact Form */
+#contact .contact__form {
+     margin-top: 3rem;
+}
+
+#contact .input-group {
+    margin-bottom: 1.5rem;
+    border-radius: 0.5rem; /* Slightly rounded inputs */
+    box-shadow: var(--inner-shadow); /* Inner shadow for inputs */
+    transition: box-shadow 0.3s ease;
+}
+
+#contact .input-group:focus-within { /* Style when input inside is focused */
+     box-shadow: var(--outer-shadow-hover); /* Outer shadow on focus */
+     border: 1px solid var(--skin-color-light); /* Subtle border on focus */
+}
+
+#contact .input-control {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--text-color);
+    background-color: var(--body-bg); /* Use body background for input field */
+    background-clip: padding-box;
+    border: 1px solid transparent; /* Use transparent border, rely on shadow */
+    border-radius: 0.5rem;
+    outline: none; /* Remove default outline */
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, background-color 0.5s ease, color 0.5s ease;
+}
+
+#contact .input-control:focus {
+     border-color: var(--skin-color-light); /* Border on focus */
+}
+
+
+#contact .input-control::placeholder {
+    color: var(--text-color-light);
+    opacity: 1;
+}
+
+#contact textarea.input-control {
+    min-height: 150px;
+    resize: vertical;
+}
+
+#contact .submit-btn {
+     text-align: center;
+     margin-top: 2rem;
+}
+
+#contact #formStatus {
+    margin-top: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    min-height: 1.5em; /* Reserve space to prevent layout shift */
+    color: var(--skin-color); /* Default status color */
+}
+#contact #formStatus.success {
+    color: green;
+}
+#contact #formStatus.error {
+    color: red;
+}
+
+
+/* Footer Styling */
+footer {
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    padding: 3rem 0; /* Adjusted padding */
+    text-align: center;
+    box-shadow: var(--outer-shadow);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.3s ease;
+}
+
+footer h3 {
+     color: var(--heading-color);
+     margin-bottom: 1.5rem;
+     font-weight: 700;
+}
+
+footer a {
+    color: var(--text-color-light);
+    margin: 0 0.75rem;
+    font-size: 2rem;
+    transition: color 0.3s ease;
+}
+
+footer a:hover {
+    color: var(--skin-color);
+}
+
+footer p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+
+
+/*=============== ANIMATIONS (Intersection Observer) ===============*/
+/* Initial state (hidden) */
+[data-animate-on-scroll] {
+    opacity: 0;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Transform variants */
+[data-animate-on-scroll="fade-up"] { transform: translateY(20px); }
+[data-animate-on-scroll="fade-right"] { transform: translateX(-20px); }
+[data-animate-on-scroll="fade-left"] { transform: translateX(20px); }
+[data-animate-on-scroll="scale-up"] { transform: scale(0.9); }
+
+
+/* State when 'show' class is added by JS */
+[data-animate-on-scroll].show {
+    opacity: 1;
+    transform: translate(0) scale(1);
+}
+
+/* Animation Delay (Handled by JS, but defining transition property here) */
+[data-animate-on-scroll] {
+     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+
+/*=============== MEDIA QUERIES ===============*/
+@media (max-width: 991.98px) {
+    .carousel-caption h1 { font-size: 2.5rem; }
+    .carousel-caption p { font-size: 1rem; }
+}
+
+@media (max-width: 767.98px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    /* Stack columns on small devices */
+    #about .col-md-4,
+    #about .col-md-8,
+    #posts .col-md-4,
+    #skills .col-md-8, /* Skills column center fix */
+    #hobbies .col-md-4,
+    #contact .col-md-4,
+    #contact .col-sm-6, /* Contact cards grid on mobile */
+    #contact .col-lg-8,
+    #contact .col-md-10 {
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding: 0 15px;
+    }
+
+    #about .about-img {
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    #about .img-fluid {
+        max-width: 200px;
+    }
+
+    #skills .skill-bar {
+        margin-bottom: 1rem;
+    }
+
+    #contact .contact__card {
+         margin-bottom: 1.5rem;
+    }
+
+    /* Center skills column content if using col-md-8 with mx-auto */
+     #skills .col-md-8.mx-auto {
+         margin-left: auto !important;
+         margin-right: auto !important;
+     }
+
+    .carousel-caption {
+         text-align: center; /* Center carousel text on small screens */
+         left: 15%;
+         right: 15%;
+         padding-bottom: 1rem; /* Add padding at the bottom */
+    }
+     .carousel-caption h1 { font-size: 2rem; }
+    .carousel-caption p { font-size: 0.9rem; }
+
+     footer a {
+        font-size: 1.8rem; /* Slightly smaller social icons */
+     }
+}
+
+@media (max-width: 575.98px) {
+     .carousel-caption {
+         left: 10%;
+         right: 10%;
+     }
+     .carousel-caption h1 { font-size: 1.8rem; }
+    .carousel-caption p { font-size: 0.8rem; }
+
+     #contact .col-sm-6 { /* Ensure contact cards stack on extra small screens */
+         flex: 0 0 100%;
+         max-width: 100%;
+     }
+     footer a {
+        font-size: 1.5rem; /* Smaller social icons on smallest screens */
+     }
 }
